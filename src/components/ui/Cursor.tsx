@@ -5,7 +5,7 @@ export function Cursor() {
 
   if (isMobile) return null;
 
-  const size = isHovering ? 15 : 8;
+  const size = isHovering ? 20 : 10;
   const offset = size / 2;
 
   return (
@@ -20,7 +20,7 @@ export function Cursor() {
         transition: 'width 0.18s cubic-bezier(0.16, 1, 0.3, 1), height 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease-out',
       }}
     >
-      <div 
+      <div
         className="w-full h-full rounded-full bg-white transition-all duration-200"
       />
     </div>
