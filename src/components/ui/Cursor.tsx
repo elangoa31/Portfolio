@@ -5,7 +5,7 @@ export function Cursor() {
 
   if (isMobile) return null;
 
-  const size = isHovering ? 22 : 10;
+  const size = isHovering ? 45 : 20;
   const offset = size / 2;
 
   return (
