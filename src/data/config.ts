@@ -7,6 +7,7 @@ export const config = {
     linkedin: 'https://www.linkedin.com/in/elangoa07/', // TODO: Update
     leetcode: 'https://leetcode.com/u/Elango_a07/', // TODO: Update
   },
+  formEndpoint: 'https://formsubmit.co/ajax/elangoarumugam.sa@gmail.com',
   stats: {
     problemsSolved: 'In Progress',
     repositories: '6',
