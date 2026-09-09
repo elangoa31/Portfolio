@@ -31,7 +31,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     { id: 'contact', name: 'Go to Contact', icon: Mail, action: () => { scrollTo('contact'); onClose(); } },
     { id: 'github', name: 'Open GitHub', icon: Github, action: () => { window.open(config.socials.github, '_blank'); onClose(); } },
     { id: 'leetcode', name: 'Open LeetCode', icon: Code2, action: () => { window.open(config.socials.leetcode, '_blank'); onClose(); } },
-    { id: 'resume', name: 'Download Resume', icon: FileText, action: () => { alert('Resume download placeholder'); onClose(); } },
+    { id: 'resume', name: 'Open Resume', icon: FileText, action: () => { window.open('/resume.pdf', '_blank', 'noopener,noreferrer'); onClose(); } },
   ];
 
   const scrollTo = (id: string) => {

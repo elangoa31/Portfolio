@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
 export function useCustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isOverText, setIsOverText] = useState(false);
   const [isMobile, setIsMobile] = useState(() => {
@@ -13,9 +12,16 @@ export function useCustomCursor() {
     );
   });
 
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const isHoveringRef = useRef(false);
   const posRef = useRef({ x: -100, y: -100 });
   const targetRef = useRef({ x: -100, y: -100 });
+  const hasMovedRef = useRef(false);
   const animFrameRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    isHoveringRef.current = isHovering;
+  }, [isHovering]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -38,19 +44,22 @@ export function useCustomCursor() {
 
     document.documentElement.classList.add('custom-cursor-active');
 
-    // Smooth & responsive RAF interpolation
+    // Highly responsive, low-latency RAF interpolation (~0-10ms delay, no React re-render lag)
     let isRunning = true;
     const updateCursor = () => {
       if (!isRunning) return;
 
-      const ease = 0.45;
+      const ease = 0.75;
       posRef.current.x += (targetRef.current.x - posRef.current.x) * ease;
       posRef.current.y += (targetRef.current.y - posRef.current.y) * ease;
 
-      setPosition({
-        x: Math.round(posRef.current.x * 10) / 10,
-        y: Math.round(posRef.current.y * 10) / 10,
-      });
+      if (cursorRef.current && hasMovedRef.current) {
+        const size = isHoveringRef.current ? 22 : 11;
+        const offset = size / 2;
+        const x = Math.round((posRef.current.x - offset) * 10) / 10;
+        const y = Math.round((posRef.current.y - offset) * 10) / 10;
+        cursorRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
 
       animFrameRef.current = requestAnimationFrame(updateCursor);
     };
@@ -58,7 +67,16 @@ export function useCustomCursor() {
     animFrameRef.current = requestAnimationFrame(updateCursor);
 
     const onMouseMove = (e: MouseEvent) => {
-      targetRef.current = { x: e.clientX, y: e.clientY };
+      targetRef.current.x = e.clientX;
+      targetRef.current.y = e.clientY;
+      if (!hasMovedRef.current) {
+        hasMovedRef.current = true;
+        posRef.current.x = e.clientX;
+        posRef.current.y = e.clientY;
+        if (cursorRef.current) {
+          cursorRef.current.style.opacity = '1';
+        }
+      }
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -102,5 +120,5 @@ export function useCustomCursor() {
     };
   }, [isMobile]);
 
-  return { position, isHovering, isOverText, isMobile };
+  return { cursorRef, position: posRef.current, isHovering, isOverText, isMobile };
 }

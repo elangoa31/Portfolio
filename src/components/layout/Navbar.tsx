@@ -44,7 +44,7 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        
+
         {/* Brand */}
         <Link 
           to="/" 
@@ -82,20 +82,20 @@ export function Navbar() {
 
         {/* Desktop Right Actions: Baseline Alignment */}
         <div className="hidden md:flex items-center space-x-5">
-          <a 
-            href={config.socials.github} 
-            target="_blank" 
-            rel="noreferrer" 
+          <a
+            href={config.socials.github}
+            target="_blank"
+            rel="noreferrer"
             data-interactive="true"
             className="text-muted hover:text-foreground transition-colors p-1"
             title="GitHub"
           >
             <Github className="w-4 h-4" />
           </a>
-          <a 
-            href={config.socials.linkedin} 
-            target="_blank" 
-            rel="noreferrer" 
+          <a
+            href={config.socials.linkedin}
+            target="_blank"
+            rel="noreferrer"
             data-interactive="true"
             className="text-muted hover:text-foreground transition-colors p-1"
             title="LinkedIn"
@@ -103,7 +103,9 @@ export function Navbar() {
             <Linkedin className="w-4 h-4" />
           </a>
           <a
-            href={`mailto:${config.email}`}
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             data-interactive="true"
             className="px-3.5 py-1.5 text-xs font-medium border border-white/15 hover:border-white/40 text-foreground hover:bg-white/5 transition-all rounded-none"
           >
@@ -168,7 +170,9 @@ export function Navbar() {
                   </a>
                 </div>
                 <a 
-                  href={`mailto:${config.email}`}
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   data-interactive="true"
                   className="px-4 py-2 text-xs font-medium border border-white/20 text-foreground"
                 >

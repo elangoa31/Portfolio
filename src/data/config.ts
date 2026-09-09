@@ -5,11 +5,11 @@ export const config = {
   socials: {
     github: 'https://github.com/elangoa31', // TODO: Update
     linkedin: 'https://www.linkedin.com/in/elangoa07/', // TODO: Update
-    leetcode: 'https://leetcode.com/', // TODO: Update
+    leetcode: 'https://leetcode.com/u/Elango_a07/', // TODO: Update
   },
   stats: {
-    problemsSolved: '200+',
-    repositories: '30+',
-    projects: '15+',
+    problemsSolved: 'In Progress',
+    repositories: '6',
+    projects: 'In Progress',
   }
 };

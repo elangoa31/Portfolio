@@ -1,22 +1,22 @@
 import { useCustomCursor } from '../../hooks/useCustomCursor';
 
 export function Cursor() {
-  const { position, isHovering, isMobile } = useCustomCursor();
+  const { cursorRef, isHovering, isMobile } = useCustomCursor();
 
   if (isMobile) return null;
 
   const size = isHovering ? 22 : 11;
-  const offset = size / 2;
 
   return (
     <div
+      ref={cursorRef}
       aria-hidden="true"
       className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference will-change-transform"
       style={{
-        transform: `translate3d(${position.x - offset}px, ${position.y - offset}px, 0)`,
+        transform: 'translate3d(-100px, -100px, 0)',
         width: `${size}px`,
         height: `${size}px`,
-        opacity: position.x < 0 ? 0 : 1,
+        opacity: 0,
         transition: 'width 0.18s cubic-bezier(0.16, 1, 0.3, 1), height 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease-out',
       }}
     >

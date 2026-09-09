@@ -47,31 +47,8 @@ export const projects: Project[] = [
     }
   },
   {
-    id: 'karigarai',
-    number: '02',
-    title: 'KarigarAI',
-    category: 'AI / Mobile / Social Impact',
-    description: 'An AI-powered mobile platform designed to help Indian artisans digitize, organize and grow their craft businesses.',
-    technologies: ['React Native', 'Expo', 'Node.js', 'AI'],
-    links: {
-      github: '#',
-      live: '#',
-    },
-    caseStudy: {
-      summary: 'Empowering Indian artisans with digital tools to manage and scale their traditional businesses.',
-      role: 'Mobile & Backend Developer',
-      timeline: '2024',
-      problem: 'Many talented artisans lack the digital literacy and tools to manage inventory, price their goods properly, and reach a wider market.',
-      approach: 'Designed a mobile-first platform tailored for non-tech-savvy users, integrating AI to help with pricing and inventory categorization.',
-      engineering: 'Built with React Native and Expo for cross-platform support. The backend uses Node.js with an AI API to assist users in vernacular languages.',
-      challenges: 'Designing an intuitive UI for users with limited digital experience and ensuring the AI responses were culturally and contextually accurate.',
-      outcome: 'Won accolades at hackathons and received positive feedback from initial user testing.',
-      learned: 'Learned the importance of accessibility, vernacular support, and deploying React Native applications effectively.'
-    }
-  },
-  {
     id: 'streakguard',
-    number: '03',
+    number: '02',
     title: 'StreakGuard',
     category: 'Productivity / Mobile / Backend',
     description: 'A productivity platform combining habit tracking with developer-focused progress monitoring.',
@@ -94,7 +71,7 @@ export const projects: Project[] = [
   },
   {
     id: 'next-project-1',
-    number: '04',
+    number: '03',
     title: 'Next Project',
     category: 'Category / Domain',
     description: 'An editable placeholder project description goes here.',
@@ -113,7 +90,7 @@ export const projects: Project[] = [
   },
   {
     id: 'next-project-2',
-    number: '05',
+    number: '04',
     title: 'Next Project',
     category: 'Category / Domain',
     description: 'Another editable placeholder project description goes here.',
